@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail zakázky - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/zakazka-detail.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html" class="active">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <div class="zakazka-info">
+                    <h1 id="zakazka-nazev">Rekonstrukce bytu</h1>
+                    <p id="zakazka-adresa">Dlouhá 123, Praha</p>
+                </div>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <section id="investor-sekce" class="detail-section">
+                <h2>Investor</h2>
+                <div class="form-group">
+                    <label for="investor-typ">Typ investora:</label>
+                    <select id="investor-typ" class="form-control">
+                        <option value="firma">Firma</option>
+                        <option value="soukromnik">Soukromník</option>
+                    </select>
+                </div>
+                <div id="investor-firma" class="investor-detail">
+                    <div class="form-group">
+                        <label for="firma-nazev">Název firmy:</label>
+                        <input type="text" id="firma-nazev" name="firma-nazev" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-ico">IČO:</label>
+                        <input type="text" id="firma-ico" name="firma-ico" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-dic">DIČ:</label>
+                        <input type="text" id="firma-dic" name="firma-dic" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-sidlo">Sídlo:</label>
+                        <input type="text" id="firma-sidlo" name="firma-sidlo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-dph-status">Status DPH:</label>
+                        <select id="firma-dph-status" name="firma-dph-status" class="form-control">
+                            <option value="platce">Plátce DPH</option>
+                            <option value="neplatce">Neplátce DPH</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-kontaktni-osoba">Kontaktní osoba:</label>
+                        <input type="text" id="firma-kontaktni-osoba" name="firma-kontaktni-osoba" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-telefon">Telefon:</label>
+                        <input type="tel" id="firma-telefon" name="firma-telefon" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="firma-email">Email:</label>
+                        <input type="email" id="firma-email" name="firma-email" class="form-control">
+                    </div>
+                </div>
+                <div id="investor-soukromnik" class="investor-detail" style="display:none;">
+                    <div class="form-group">
+                        <label for="soukromnik-jmeno">Jméno:</label>
+                        <input type="text" id="soukromnik-jmeno" name="soukromnik-jmeno" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="soukromnik-prijmeni">Příjmení:</label>
+                        <input type="text" id="soukromnik-prijmeni" name="soukromnik-prijmeni" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="soukromnik-adresa">Adresa:</label>
+                        <input type="text" id="soukromnik-adresa" name="soukromnik-adresa" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="soukromnik-telefon">Telefon:</label>
+                        <input type="tel" id="soukromnik-telefon" name="soukromnik-telefon" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="soukromnik-email">Email:</label>
+                        <input type="email" id="soukromnik-email" name="soukromnik-email" class="form-control">
+                    </div>
+                </div>
+            </section>
+
+            <section id="finance-sekce" class="detail-section">
+                <h2>Finance</h2>
+                <div class="finance-grid">
+                    <div class="form-group">
+                        <label for="castka-bez-dph">Částka bez DPH:</label>
+                        <input type="text" id="castka-bez-dph" name="castka-bez-dph" class="form-control" inputmode="numeric">
+                    </div>
+                    <div class="form-group">
+                        <label for="sazba-dph">Sazba DPH:</label>
+                        <select id="sazba-dph" name="sazba-dph" class="form-control">
+                            <option value="0">0%</option>
+                            <option value="12">12%</option>
+                            <option value="21">21%</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Částka s DPH:</label>
+                        <span id="castka-s-dph" class="form-control-static"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>DPH:</label>
+                        <span id="dph" class="form-control-static"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="zaplaceno">Zaplaceno:</label>
+                        <input type="text" id="zaplaceno" name="zaplaceno" class="form-control" inputmode="numeric">
+                    </div>
+                    <div class="form-group">
+                        <label>Zbývá doplatit:</label>
+                        <span id="zbyva-doplatit" class="form-control-static"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Náklady:</label>
+                        <span id="naklady" class="form-control-static"></span>
+                    </div>
+                    <div class="form-group">
+                        <label>Zisk:</label>
+                        <span id="zisk" class="form-control-static"></span>
+                    </div>
+                </div>
+            </section>
+
+            <section id="naklady-sekce" class="detail-section">
+                <h2>Náklady</h2>
+                <button id="pridat-fakturu" class="btn">Přiřadit fakturu</button>
+                <ul id="seznam-faktur" class="naklady-list"></ul>
+            </section>
+
+            <section id="dokumenty-sekce" class="detail-section">
+                <h2>Dokumenty</h2>
+                <div class="document-upload">
+                    <select id="typ-dokumentu" class="form-control">
+                        <option value="smlouva">Smlouva</option>
+                        <option value="dodatek">Dodatek smlouvy</option>
+                        <option value="nabidka">Cenová nabídka</option>
+                        <option value="protokol">Předávací protokol</option>
+                        <option value="ostatni">Ostatní</option>
+                    </select>
+                    <input type="file" id="nahrat-dokument" class="form-control-file">
+                    <button id="ulozit-dokument" class="btn">Nahrát dokument</button>
+                </div>
+                <ul id="seznam-dokumentu" class="document-list"></ul>
+            </section>
+
+            <section id="stavebni-denik-sekce" class="detail-section">
+                <h2>Stavební deník</h2>
+                <textarea id="denik-zaznam" class="form-control" placeholder="Zápis do deníku"></textarea>
+                <button id="ulozit-zaznam" class="btn">Uložit záznam</button>
+                <button id="export-pdf" class="btn">Exportovat do PDF</button>
+                <div id="denik-zaznamy" class="denik-list"></div>
+            </section>
+
+            <section id="komunikace-sekce" class="detail-section">
+                <h2>Komunikace</h2>
+                <div class="communication-upload">
+                    <input type="file" id="nahrat-komunikaci" class="form-control-file" accept="image/*">
+                    <button id="ulozit-komunikaci" class="btn">Nahrát screenshot</button>
+                </div>
+                <div id="komunikace-galerie" class="komunikace-gallery"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="../js/zakazka-detail.js"></script>
+</body>
+</html>

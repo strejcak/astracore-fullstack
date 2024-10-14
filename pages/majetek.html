@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Majetek - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/majetek.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html" class="active">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Majetek</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="majetek-summary">
+                <h2>Celková hodnota majetku: <span id="total-value">0 Kč</span></h2>
+            </div>
+
+            <div class="majetek-controls">
+                <input type="text" id="search-majetek" placeholder="Vyhledat majetek...">
+                <select id="filter-kategorie">
+                    <option value="">Všechny kategorie</option>
+                    <option value="vozidla">Vozidla</option>
+                    <option value="stroje">Stroje</option>
+                    <option value="nemovitosti">Nemovitosti</option>
+                    <option value="it">IT vybavení</option>
+                    <option value="ostatni">Ostatní</option>
+                </select>
+                <button id="add-majetek-btn" class="btn btn-primary">+ Přidat majetek</button>
+            </div>
+
+            <table class="majetek-table">
+                <thead>
+                    <tr>
+                        <th>Název</th>
+                        <th>Kategorie</th>
+                        <th>Pořizovací cena</th>
+                        <th>Datum pořízení</th>
+                        <th>Aktuální hodnota</th>
+                        <th>Akce</th>
+                    </tr>
+                </thead>
+                <tbody id="majetek-list">
+                    <!-- Seznam majetku bude dynamicky generován -->
+                </tbody>
+            </table>
+
+            <div id="majetek-modal" class="modal">
+                <div class="modal-content">
+                    <h2 id="majetek-modal-title">Přidat nový majetek</h2>
+                    <form id="majetek-form">
+                        <label for="majetek-name">Název:</label>
+                        <input type="text" id="majetek-name" required>
+                        
+                        <label for="majetek-kategorie">Kategorie:</label>
+                        <select id="majetek-kategorie" required>
+                            <option value="vozidla">Vozidla</option>
+                            <option value="stroje">Stroje</option>
+                            <option value="nemovitosti">Nemovitosti</option>
+                            <option value="it">IT vybavení</option>
+                            <option value="ostatni">Ostatní</option>
+                        </select>
+                        
+                        <label for="majetek-cena">Pořizovací cena:</label>
+                        <input type="number" id="majetek-cena" step="0.01" required>
+                        
+                        <label for="majetek-datum">Datum pořízení:</label>
+                        <input type="date" id="majetek-datum" required>
+                        
+                        <label for="majetek-hodnota">Aktuální hodnota:</label>
+                        <input type="number" id="majetek-hodnota" step="0.01" required>
+                        
+                        <button type="submit" class="btn btn-primary">Uložit</button>
+                        <button type="button" class="btn btn-secondary" id="close-majetek-modal">Zrušit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/majetek.js"></script>
+</body>
+</html>

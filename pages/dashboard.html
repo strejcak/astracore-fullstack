@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dashboard.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="zakazky.html">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dashboard</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="dashboard-widgets">
+                <div class="widget finance-widget">
+                    <h2>Finance - Aktuální měsíc</h2>
+                    <div class="finance-summary">
+                        <div class="finance-item">
+                            <span class="label">Příjmy:</span>
+                            <span class="value" id="monthly-income">0 Kč</span>
+                        </div>
+                        <div class="finance-item">
+                            <span class="label">Výdaje:</span>
+                            <span class="value" id="monthly-expenses">0 Kč</span>
+                        </div>
+                    </div>
+                    <canvas id="finance-chart"></canvas>
+                </div>
+
+                <div class="widget orders-widget">
+                    <h2>Aktuální zakázky</h2>
+                    <ul id="current-orders">
+                        <!-- Seznam zakázek bude dynamicky generován JavaScriptem -->
+                    </ul>
+                </div>
+
+                <div class="widget calendar-widget">
+                    <h2>Kalendář</h2>
+                    <div id="calendar">
+                        <!-- Kalendář bude implementován pomocí JavaScript knihovny -->
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+</body>
+</html>

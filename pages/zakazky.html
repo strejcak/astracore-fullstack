@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakázky - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/zakazky.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html" class="active">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Zakázky</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="content-grid">
+                <div class="widget zakazky-filter">
+                    <h2>Filtrování zakázek</h2>
+                    <input type="text" id="search-zakazky" placeholder="Vyhledat zakázku...">
+                    <select id="filter-stav">
+                        <option value="">Všechny stavy</option>
+                        <option value="neziskano">Nezískáno</option>
+                        <option value="obhlidka">Obhlídka</option>
+                        <option value="cenova-nabidka">Cenová nabídka</option>
+                        <option value="ceka-na-zahajeni">Čeká na zahájení</option>
+                        <option value="probiha">Probíhá</option>
+                        <option value="dokonceno">Dokončeno</option>
+                    </select>
+                </div>
+
+                <div class="widget zakazky-list">
+                    <h2>Seznam zakázek</h2>
+                    <table class="zakazky-table">
+                        <thead>
+                            <tr>
+                                <th>Název zakázky</th>
+                                <th>Investor</th>
+                                <th>Stav</th>
+                                <th>Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody id="zakazky-list">
+                            <!-- Zakázky budou dynamicky vloženy pomocí JavaScriptu -->
+                        </tbody>
+                    </table>
+                    <button id="add-zakazka-btn" class="btn btn-primary">+ Přidat zakázku</button>
+                </div>
+
+                <div class="widget zakazky-summary">
+                    <h2>Shrnutí zakázek</h2>
+                    <ul id="zakazky-summary-list">
+                        <!-- Shrnutí zakázek bude dynamicky vloženo pomocí JavaScriptu -->
+                    </ul>
+                </div>
+            </div>
+
+            <div id="zakazka-modal" class="modal">
+                <div class="modal-content">
+                    <h2>Přidat novou zakázku</h2>
+                    <form id="zakazka-form">
+                        <label for="nazev">Název zakázky:</label>
+                        <input type="text" id="nazev" name="nazev" required>
+
+                        <label for="investor">Investor:</label>
+                        <input type="text" id="investor" name="investor" required>
+
+                        <label for="kontakt">Kontakt:</label>
+                        <input type="text" id="kontakt" name="kontakt" required>
+
+                        <label for="adresa">Adresa:</label>
+                        <input type="text" id="adresa" name="adresa" required>
+
+                        <button type="submit" class="btn btn-primary">Uložit</button>
+                        <button type="button" class="btn btn-secondary" id="close-modal">Zrušit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/zakazky.js"></script>
+</body>
+</html>

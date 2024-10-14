@@ -1,0 +1,182 @@
+/* main.css pro AstraCore Solutions */
+
+/* Import fontů (předpokládám, že budete chtít použít moderní bezpatkové písmo) */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+/* Resetování základních stylů */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Základní proměnné */
+:root {
+    /* Barvy odvozené z loga */
+    --primary-color: #4a5568; /* Tmavě šedá z pozadí */
+    --secondary-color: #ed8936; /* Oranžová z loga */
+    --text-color: #ffffff; /* Bílá pro text */
+    --background-color: #2d3748; /* Tmavší odstín šedé pro pozadí */
+    --accent-color: #718096; /* Světlejší šedá pro akcenty */
+
+    /* Velikosti fontů */
+    --font-size-small: 0.875rem;
+    --font-size-normal: 1rem;
+    --font-size-large: 1.25rem;
+    --font-size-xlarge: 1.5rem;
+
+    /* Mezery */
+    --spacing-small: 0.5rem;
+    --spacing-normal: 1rem;
+    --spacing-large: 1.5rem;
+
+    /* Zaoblení rohů */
+    --border-radius: 0.25rem;
+}
+
+/* Základní styly */
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: var(--font-size-normal);
+    color: var(--text-color);
+    background-color: var(--background-color);
+    line-height: 1.6;
+}
+
+/* Typografie */
+h1, h2, h3, h4, h5, h6 {
+    margin-bottom: var(--spacing-normal);
+    font-weight: 500;
+}
+
+h1 { font-size: var(--font-size-xlarge); }
+h2 { font-size: var(--font-size-large); }
+
+p {
+    margin-bottom: var(--spacing-normal);
+}
+
+/* Odkazy */
+a {
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+}
+
+/* Tlačítka */
+.btn {
+    display: inline-block;
+    padding: var(--spacing-small) var(--spacing-normal);
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Formuláře */
+input, select, textarea {
+    width: 100%;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-normal);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+}
+
+/* Layout */
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-normal);
+}
+
+/* Header */
+.header {
+    background-color: var(--primary-color);
+    padding: var(--spacing-normal) 0;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--primary-color);
+    padding: var(--spacing-large) 0;
+    margin-top: var(--spacing-large);
+}
+
+/* Sidebar */
+.sidebar {
+    background-color: var(--primary-color);
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: var(--spacing-large) var(--spacing-normal);
+}
+
+/* Main content */
+.main-content {
+    margin-left: 250px; /* Šířka sidebaru */
+    padding: var(--spacing-large);
+}
+
+/* Tabulky */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-large);
+}
+
+th, td {
+    padding: var(--spacing-small);
+    border: 1px solid var(--accent-color);
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+}
+
+/* Karty */
+.card {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-normal);
+    margin-bottom: var(--spacing-normal);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsivní design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+/* Utility třídy */
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.mt-1 { margin-top: var(--spacing-small); }
+.mt-2 { margin-top: var(--spacing-normal); }
+.mt-3 { margin-top: var(--spacing-large); }
+.mb-1 { margin-bottom: var(--spacing-small); }
+.mb-2 { margin-bottom: var(--spacing-normal); }
+.mb-3 { margin-bottom: var(--spacing-large); }

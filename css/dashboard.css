@@ -1,0 +1,194 @@
+/* dashboard.css */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: var(--spacing-normal);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: var(--spacing-small);
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: var(--spacing-small);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-normal);
+    background-color: var(--background-color);
+}
+
+/* Header styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-large);
+    padding: var(--spacing-normal);
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+.main-header h1 {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 24px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#user-name {
+    margin-right: var(--spacing-normal);
+    color: var(--text-color);
+}
+
+#logout-btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: var(--spacing-small) var(--spacing-normal);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#logout-btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Dashboard widgets */
+.dashboard-widgets {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-normal);
+    margin-top: var(--spacing-normal);
+}
+
+.widget {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-normal);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.widget h2 {
+    margin-bottom: var(--spacing-normal);
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+/* Finance widget */
+.finance-widget {
+    display: flex;
+    flex-direction: column;
+}
+
+.finance-summary {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-normal);
+}
+
+.finance-item {
+    text-align: center;
+}
+
+.finance-item .label {
+    display: block;
+    font-size: var(--font-size-small);
+    margin-bottom: var(--spacing-small);
+    color: var(--text-color);
+}
+
+.finance-item .value {
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    color: var(--secondary-color);
+}
+
+.finance-widget canvas {
+    max-height: 200px;
+    margin-top: var(--spacing-normal);
+}
+
+/* Orders widget */
+#current-orders {
+    list-style-type: none;
+    padding: 0;
+}
+
+#current-orders li {
+    padding: var(--spacing-small);
+    border-bottom: 1px solid var(--accent-color);
+}
+
+#current-orders li:last-child {
+    border-bottom: none;
+}
+
+/* Calendar widget */
+#calendar {
+    display: block;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .dashboard-widgets {
+        grid-template-columns: 1fr;
+    }
+
+    .main-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .user-info {
+        margin-top: var(--spacing-normal);
+    }
+}

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sklad - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/sklad.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html" class="active">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Sklad</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="sklad-navigation">
+                <button class="tab-btn active" data-tab="material">Materiál</button>
+                <button class="tab-btn" data-tab="naradi">Nářadí</button>
+            </div>
+
+            <div class="sklad-content">
+                <section id="material" class="tab-content active">
+                    <h2>Materiál na skladě</h2>
+                    <div class="search-filter">
+                        <input type="text" id="search-material" placeholder="Vyhledat materiál...">
+                    </div>
+                    <table class="sklad-table">
+                        <thead>
+                            <tr>
+                                <th>Název</th>
+                                <th>Množství</th>
+                                <th>Jednotka</th>
+                                <th>Průměrná cena</th>
+                                <th>Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody id="material-list">
+                            <!-- Seznam materiálu bude dynamicky generován -->
+                        </tbody>
+                    </table>
+                    <button id="add-material-btn" class="btn btn-primary">+ Přidat materiál</button>
+                </section>
+
+                <section id="naradi" class="tab-content">
+                    <h2>Nářadí</h2>
+                    <div class="search-filter">
+                        <input type="text" id="search-naradi" placeholder="Vyhledat nářadí...">
+                    </div>
+                    <table class="sklad-table">
+                        <thead>
+                            <tr>
+                                <th>Název</th>
+                                <th>Stav</th>
+                                <th>Lokace</th>
+                                <th>Cena</th>
+                                <th>Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody id="naradi-list">
+                            <!-- Seznam nářadí bude dynamicky generován -->
+                        </tbody>
+                    </table>
+                    <button id="add-naradi-btn" class="btn btn-primary">+ Přidat nářadí</button>
+                </section>
+            </div>
+
+            <!-- Modal pro přidání/úpravu materiálu -->
+            <div id="material-modal" class="modal">
+                <div class="modal-content">
+                    <h2 id="material-modal-title">Přidat nový materiál</h2>
+                    <form id="material-form">
+                        <label for="material-name">Název:</label>
+                        <input type="text" id="material-name" required>
+                        
+                        <label for="material-quantity">Množství:</label>
+                        <input type="number" id="material-quantity" required>
+                        
+                        <label for="material-unit">Jednotka:</label>
+                        <input type="text" id="material-unit" required>
+                        
+                        <label for="material-price">Nákupní cena:</label>
+                        <input type="number" id="material-price" step="0.01" required>
+                        
+                        <button type="submit" class="btn btn-primary">Uložit</button>
+                        <button type="button" class="btn btn-secondary" id="close-material-modal">Zrušit</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Modal pro přidání/úpravu nářadí -->
+            <div id="naradi-modal" class="modal">
+                <div class="modal-content">
+                    <h2 id="naradi-modal-title">Přidat nové nářadí</h2>
+                    <form id="naradi-form">
+                        <label for="naradi-name">Název:</label>
+                        <input type="text" id="naradi-name" required>
+                        
+                        <label for="naradi-stav">Stav:</label>
+                        <select id="naradi-stav" required>
+                            <option value="sklad">Na skladě</option>
+                            <option value="stavba">Na stavbě</option>
+                            <option value="servis">V servisu</option>
+                        </select>
+                        
+                        <label for="naradi-lokace">Lokace:</label>
+                        <input type="text" id="naradi-lokace" required>
+                        
+                        <label for="naradi-price">Cena:</label>
+                        <input type="number" id="naradi-price" step="0.01" required>
+                        
+                        <button type="submit" class="btn btn-primary">Uložit</button>
+                        <button type="button" class="btn btn-secondary" id="close-naradi-modal">Zrušit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/sklad.js"></script>
+</body>
+</html>

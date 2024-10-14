@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/finance.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html">Zakázky</a></li>
+                    <li><a href="finance.html" class="active">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Finance</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="finance-navigation">
+                <button class="tab-btn active" data-tab="prehled">Přehled</button>
+                <button class="tab-btn" data-tab="prijate-faktury">Přijaté faktury</button>
+                <button class="tab-btn" data-tab="vydane-faktury">Vydané faktury</button>
+            </div>
+
+            <div class="finance-content">
+                <section id="prehled" class="tab-content active">
+                    <div class="widget annual-summary">
+                        <h2>Roční přehled</h2>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <span class="label">Celkové příjmy:</span>
+                                <span class="value" id="total-income">0 Kč</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Celkové výdaje:</span>
+                                <span class="value" id="total-expenses">0 Kč</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Odhad daně z příjmů:</span>
+                                <span class="value" id="estimated-tax">0 Kč</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget monthly-summary">
+                        <h2>Měsíční přehled</h2>
+                        <select id="month-select">
+                            <option value="1">Leden</option>
+                            <option value="2">Únor</option>
+                            <!-- Další měsíce... -->
+                        </select>
+                        <div class="summary-grid">
+                            <div class="summary-item">
+                                <span class="label">Měsíční příjmy:</span>
+                                <span class="value" id="monthly-income">0 Kč</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Měsíční výdaje:</span>
+                                <span class="value" id="monthly-expenses">0 Kč</span>
+                            </div>
+                            <div class="summary-item">
+                                <span class="label">Odhad odvodu DPH:</span>
+                                <span class="value" id="estimated-vat">0 Kč</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="widget financial-chart">
+                        <h2>Finanční graf</h2>
+                        <canvas id="finance-chart"></canvas>
+                    </div>
+                </section>
+
+                <section id="prijate-faktury" class="tab-content">
+                    <h2>Přijaté faktury</h2>
+                    <table class="faktury-table">
+                        <thead>
+                            <tr>
+                                <th>Číslo faktury</th>
+                                <th>Dodavatel</th>
+                                <th>Částka</th>
+                                <th>Datum splatnosti</th>
+                                <th>Stav</th>
+                                <th>Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody id="prijate-faktury-list">
+                            <!-- Seznam přijatých faktur bude dynamicky generován -->
+                        </tbody>
+                    </table>
+                    <button id="add-prijata-faktura-btn" class="btn btn-primary">+ Přidat přijatou fakturu</button>
+                </section>
+
+                <section id="vydane-faktury" class="tab-content">
+                    <h2>Vydané faktury</h2>
+                    <table class="faktury-table">
+                        <thead>
+                            <tr>
+                                <th>Číslo faktury</th>
+                                <th>Odběratel</th>
+                                <th>Částka</th>
+                                <th>Datum splatnosti</th>
+                                <th>Stav</th>
+                                <th>Akce</th>
+                            </tr>
+                        </thead>
+                        <tbody id="vydane-faktury-list">
+                            <!-- Seznam vydaných faktur bude dynamicky generován -->
+                        </tbody>
+                    </table>
+                    <button id="add-vydana-faktura-btn" class="btn btn-primary">+ Přidat vydanou fakturu</button>
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../js/finance.js"></script>
+</body>
+</html>

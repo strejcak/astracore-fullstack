@@ -1,0 +1,211 @@
+/* sklad.css */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: var(--spacing-normal);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: var(--spacing-small);
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: var(--spacing-small);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-normal);
+    background-color: var(--background-color);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#user-name {
+    margin-right: var(--spacing-normal);
+}
+
+/* Sklad specific styles */
+.sklad-navigation {
+    display: flex;
+    margin-bottom: var(--spacing-normal);
+}
+
+.tab-btn {
+    padding: var(--spacing-small) var(--spacing-normal);
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.tab-btn.active {
+    background-color: var(--secondary-color);
+}
+
+.tab-btn:hover {
+    background-color: var(--accent-color);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.search-filter {
+    margin-bottom: var(--spacing-normal);
+}
+
+.search-filter input {
+    width: 100%;
+    padding: var(--spacing-small);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.sklad-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-normal);
+}
+
+.sklad-table th,
+.sklad-table td {
+    padding: var(--spacing-small);
+    text-align: left;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+.sklad-table th {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.sklad-table tr:hover {
+    background-color: rgba(var(--secondary-color-rgb), 0.1);
+}
+
+#add-material-btn,
+#add-naradi-btn {
+    margin-top: var(--spacing-normal);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 10% auto;
+    padding: var(--spacing-large);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 600px;
+}
+
+.modal-content h2 {
+    margin-bottom: var(--spacing-normal);
+    color: var(--secondary-color);
+}
+
+.modal-content form label {
+    display: block;
+    margin-bottom: var(--spacing-small);
+    color: var(--text-color);
+}
+
+.modal-content form input,
+.modal-content form select {
+    width: 100%;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-normal);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.modal-content form button {
+    margin-right: var(--spacing-small);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .sklad-navigation {
+        flex-direction: column;
+    }
+
+    .tab-btn {
+        width: 100%;
+        margin-bottom: var(--spacing-small);
+    }
+}

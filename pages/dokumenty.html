@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dokumenty - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/dokumenty.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html">Adresář</a></li>
+                    <li><a href="dokumenty.html" class="active">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Dokumenty</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="dokumenty-controls">
+                <input type="text" id="search-dokument" placeholder="Vyhledat dokument...">
+                <select id="filter-kategorie">
+                    <option value="">Všechny kategorie</option>
+                    <option value="smlouvy">Smlouvy</option>
+                    <option value="faktury">Faktury</option>
+                    <option value="nabidky">Nabídky</option>
+                    <option value="technicke-dokumenty">Technické dokumenty</option>
+                    <option value="ostatni">Ostatní</option>
+                </select>
+                <button id="add-dokument-btn" class="btn btn-primary">+ Přidat dokument</button>
+            </div>
+
+            <table class="dokumenty-table">
+                <thead>
+                    <tr>
+                        <th>Název dokumentu</th>
+                        <th>Kategorie</th>
+                        <th>Datum nahrání</th>
+                        <th>Velikost</th>
+                        <th>Akce</th>
+                    </tr>
+                </thead>
+                <tbody id="dokument-list">
+                    <!-- Seznam dokumentů bude dynamicky generován -->
+                </tbody>
+            </table>
+
+            <div id="dokument-modal" class="modal">
+                <div class="modal-content">
+                    <h2 id="dokument-modal-title">Přidat nový dokument</h2>
+                    <form id="dokument-form">
+                        <label for="dokument-name">Název dokumentu:</label>
+                        <input type="text" id="dokument-name" required>
+                        
+                        <label for="dokument-kategorie">Kategorie:</label>
+                        <select id="dokument-kategorie" required>
+                            <option value="smlouvy">Smlouvy</option>
+                            <option value="faktury">Faktury</option>
+                            <option value="nabidky">Nabídky</option>
+                            <option value="technicke-dokumenty">Technické dokumenty</option>
+                            <option value="ostatni">Ostatní</option>
+                        </select>
+                        
+                        <label for="dokument-file">Soubor:</label>
+                        <input type="file" id="dokument-file" required>
+                        
+                        <button type="submit" class="btn btn-primary">Nahrát</button>
+                        <button type="button" class="btn btn-secondary" id="close-dokument-modal">Zrušit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/dokumenty.js"></script>
+</body>
+</html>

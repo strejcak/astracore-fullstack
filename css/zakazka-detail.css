@@ -1,0 +1,239 @@
+/* zakazka-detail.css */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: var(--spacing-normal);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: var(--spacing-small);
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: var(--spacing-small);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-normal);
+    background-color: var(--background-color);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-large);
+    padding: var(--spacing-normal);
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+}
+
+.zakazka-info h1 {
+    margin: 0 0 var(--spacing-small);
+    color: var(--text-color);
+    font-size: 24px;
+}
+
+.zakazka-info p {
+    margin: 0;
+    color: var(--text-color);
+    font-size: 16px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#user-name {
+    margin-right: var(--spacing-normal);
+    color: var(--text-color);
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: var(--spacing-small) var(--spacing-normal);
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Detail section styles */
+.detail-section {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-normal);
+    margin-bottom: var(--spacing-normal);
+}
+
+.detail-section h2 {
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-normal);
+}
+
+/* Form styles */
+.form-group {
+    margin-bottom: var(--spacing-normal);
+}
+
+label {
+    display: block;
+    margin-bottom: var(--spacing-small);
+    color: var(--text-color);
+}
+
+.form-control, .form-control-static {
+    width: 100%;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+.form-control-static {
+    display: inline-block;
+    min-height: 34px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+}
+
+textarea.form-control {
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Finance section */
+.finance-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-normal);
+}
+
+/* Document and Communication upload */
+.document-upload,
+.communication-upload {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--spacing-normal);
+}
+
+.document-upload > *,
+.communication-upload > * {
+    margin-right: var(--spacing-small);
+}
+
+.form-control-file {
+    padding: var(--spacing-small);
+    background-color: var(--background-color);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    color: var(--text-color);
+}
+
+/* Lists and galleries */
+.naklady-list,
+.document-list,
+.denik-list,
+.komunikace-gallery {
+    list-style-type: none;
+    padding: 0;
+    background-color: var(--background-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-normal);
+    margin-top: var(--spacing-normal);
+}
+
+.naklady-list li,
+.document-list li,
+.denik-list p {
+    background-color: var(--primary-color);
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+    border-radius: var(--border-radius);
+}
+
+.komunikace-gallery img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: var(--spacing-small);
+    border-radius: var(--border-radius);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .finance-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .main-header {
+        flex-direction: column;
+    }
+
+    .user-info {
+        margin-top: var(--spacing-normal);
+    }
+
+    .document-upload,
+    .communication-upload {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .document-upload > *,
+    .communication-upload > * {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: var(--spacing-small);
+    }
+}

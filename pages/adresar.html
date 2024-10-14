@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adresář - AstraCore Solutions</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/adresar.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/images/logo.png" alt="AstraCore Solutions Logo" class="logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="zakazky.html">Zakázky</a></li>
+                    <li><a href="finance.html">Finance</a></li>
+                    <li><a href="sklad.html">Sklad</a></li>
+                    <li><a href="majetek.html">Majetek</a></li>
+                    <li><a href="adresar.html" class="active">Adresář</a></li>
+                    <li><a href="dokumenty.html">Dokumenty</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Adresář</h1>
+                <div class="user-info">
+                    <span id="user-name">Jan Novák</span>
+                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                </div>
+            </header>
+
+            <div class="adresar-controls">
+                <input type="text" id="search-kontakt" placeholder="Vyhledat kontakt...">
+                <select id="filter-typ">
+                    <option value="">Všechny typy</option>
+                    <option value="klient">Klient</option>
+                    <option value="dodavatel">Dodavatel</option>
+                    <option value="subdodavatel">Subdodavatel</option>
+                </select>
+                <button id="add-kontakt-btn" class="btn btn-primary">+ Přidat kontakt</button>
+            </div>
+
+            <table class="adresar-table">
+                <thead>
+                    <tr>
+                        <th>Název / Jméno</th>
+                        <th>Typ</th>
+                        <th>Telefon</th>
+                        <th>Email</th>
+                        <th>Adresa</th>
+                        <th>Akce</th>
+                    </tr>
+                </thead>
+                <tbody id="kontakt-list">
+                    <!-- Seznam kontaktů bude dynamicky generován -->
+                </tbody>
+            </table>
+
+            <div id="kontakt-modal" class="modal">
+                <div class="modal-content">
+                    <h2 id="kontakt-modal-title">Přidat nový kontakt</h2>
+                    <form id="kontakt-form">
+                        <label for="kontakt-name">Název / Jméno:</label>
+                        <input type="text" id="kontakt-name" required>
+                        
+                        <label for="kontakt-typ">Typ:</label>
+                        <select id="kontakt-typ" required>
+                            <option value="klient">Klient</option>
+                            <option value="dodavatel">Dodavatel</option>
+                            <option value="subdodavatel">Subdodavatel</option>
+                        </select>
+                        
+                        <label for="kontakt-telefon">Telefon:</label>
+                        <input type="tel" id="kontakt-telefon" required>
+                        
+                        <label for="kontakt-email">Email:</label>
+                        <input type="email" id="kontakt-email" required>
+                        
+                        <label for="kontakt-adresa">Adresa:</label>
+                        <textarea id="kontakt-adresa" required></textarea>
+                        
+                        <button type="submit" class="btn btn-primary">Uložit</button>
+                        <button type="button" class="btn btn-secondary" id="close-kontakt-modal">Zrušit</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="../js/adresar.js"></script>
+</body>
+</html>

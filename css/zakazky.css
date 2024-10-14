@@ -1,0 +1,218 @@
+/* zakazky.css */
+
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    padding: var(--spacing-normal);
+}
+
+.logo-container {
+    text-align: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.logo {
+    max-width: 150px;
+}
+
+.sidebar nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar nav ul li {
+    margin-bottom: var(--spacing-small);
+}
+
+.sidebar nav ul li a {
+    display: block;
+    padding: var(--spacing-small);
+    color: var(--text-color);
+    text-decoration: none;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar nav ul li a:hover,
+.sidebar nav ul li a.active {
+    background-color: var(--secondary-color);
+}
+
+/* Main content styles */
+.main-content {
+    flex: 1;
+    padding: var(--spacing-normal);
+    background-color: var(--background-color);
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-large);
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+}
+
+#user-name {
+    margin-right: var(--spacing-normal);
+}
+
+/* Content grid */
+.content-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-normal);
+}
+
+/* Widget styles */
+.widget {
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-normal);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.widget h2 {
+    margin-bottom: var(--spacing-normal);
+    color: var(--secondary-color);
+}
+
+/* Zakazky filter */
+.zakazky-filter {
+    grid-column: 1 / -1;
+    margin-bottom: var(--spacing-normal);
+}
+
+#search-zakazky, #filter-stav {
+    width: 100%;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-small);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Zakazky list */
+.zakazky-list {
+    grid-column: 1;
+}
+
+.zakazky-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--spacing-normal);
+    font-size: 0.9em;
+}
+
+.zakazky-table th, 
+.zakazky-table td {
+    padding: var(--spacing-small);
+    text-align: left;
+    border-bottom: 1px solid var(--accent-color);
+}
+
+.zakazky-table th {
+    background-color: var(--accent-color);
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.zakazky-table tr:hover {
+    background-color: rgba(var(--secondary-color-rgb), 0.1);
+}
+
+#add-zakazka-btn {
+    display: block;
+    margin-left: auto;
+    margin-top: var(--spacing-normal);
+}
+
+/* Zakazky summary */
+.zakazky-summary {
+    grid-column: 2;
+}
+
+.zakazky-summary ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.zakazky-summary li {
+    margin-bottom: var(--spacing-small);
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    background-color: var(--background-color);
+    margin: 10% auto;
+    padding: var(--spacing-large);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    width: 80%;
+    max-width: 600px;
+}
+
+#zakazka-form label {
+    display: block;
+    margin-bottom: var(--spacing-small);
+    color: var(--text-color);
+}
+
+#zakazka-form input {
+    width: 100%;
+    padding: var(--spacing-small);
+    margin-bottom: var(--spacing-normal);
+    border: 1px solid var(--accent-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+#zakazka-form button {
+    margin-right: var(--spacing-small);
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .zakazky-list,
+    .zakazky-summary {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+}
