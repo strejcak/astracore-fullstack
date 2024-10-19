@@ -31,7 +31,7 @@
                 <h1>Finance</h1>
                 <div class="user-info">
                     <span id="user-name">Jan Novák</span>
-                    <button id="logout-btn" class="btn">Odhlásit se</button>
+                    <button id="logout-btn" class="btn-logout">Odhlásit se</button>
                 </div>
             </header>
 
@@ -39,94 +39,192 @@
                 <button class="tab-btn active" data-tab="prehled">Přehled</button>
                 <button class="tab-btn" data-tab="prijate-faktury">Přijaté faktury</button>
                 <button class="tab-btn" data-tab="vydane-faktury">Vydané faktury</button>
+                <button class="tab-btn" data-tab="uvery">Úvěry a půjčky</button>
             </div>
 
-            <div class="finance-content">
-                <section id="prehled" class="tab-content active">
-                    <div class="widget annual-summary">
-                        <h2>Roční přehled</h2>
-                        <div class="summary-grid">
-                            <div class="summary-item">
-                                <span class="label">Celkové příjmy:</span>
-                                <span class="value" id="total-income">0 Kč</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">Celkové výdaje:</span>
-                                <span class="value" id="total-expenses">0 Kč</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">Odhad daně z příjmů:</span>
-                                <span class="value" id="estimated-tax">0 Kč</span>
-                            </div>
+            <div id="prehled" class="section tab-content active">
+                <div class="widget annual-summary">
+                    <h2>Roční přehled</h2>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="label">Celkové příjmy:</span>
+                            <span id="total-income" class="value">0 Kč</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Celkové výdaje:</span>
+                            <span id="total-expenses" class="value">0 Kč</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Odhad daně z příjmů:</span>
+                            <span id="estimated-tax" class="value">0 Kč</span>
                         </div>
                     </div>
-                    <div class="widget monthly-summary">
-                        <h2>Měsíční přehled</h2>
+                </div>
+
+                <div class="widget monthly-summary">
+                    <h2>Měsíční přehled</h2>
+                    <div class="filter-container">
+                        <select id="year-select">
+                            <option value="2024">2024</option>
+                            <option value="2023">2023</option>
+                            <option value="2022">2022</option>
+                        </select>
                         <select id="month-select">
                             <option value="1">Leden</option>
                             <option value="2">Únor</option>
-                            <!-- Další měsíce... -->
+                            <option value="3">Březen</option>
+                            <option value="4">Duben</option>
+                            <option value="5">Květen</option>
+                            <option value="6">Červen</option>
+                            <option value="7">Červenec</option>
+                            <option value="8">Srpen</option>
+                            <option value="9">Září</option>
+                            <option value="10">Říjen</option>
+                            <option value="11">Listopad</option>
+                            <option value="12">Prosinec</option>
                         </select>
-                        <div class="summary-grid">
-                            <div class="summary-item">
-                                <span class="label">Měsíční příjmy:</span>
-                                <span class="value" id="monthly-income">0 Kč</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">Měsíční výdaje:</span>
-                                <span class="value" id="monthly-expenses">0 Kč</span>
-                            </div>
-                            <div class="summary-item">
-                                <span class="label">Odhad odvodu DPH:</span>
-                                <span class="value" id="estimated-vat">0 Kč</span>
-                            </div>
+                    </div>
+                    <div class="summary-grid">
+                        <div class="summary-item">
+                            <span class="label">Měsíční příjmy:</span>
+                            <span id="monthly-income" class="value">0 Kč</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Měsíční výdaje:</span>
+                            <span id="monthly-expenses" class="value">0 Kč</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">Odhad odvodu DPH:</span>
+                            <span id="estimated-vat" class="value">0 Kč</span>
                         </div>
                     </div>
-                    <div class="widget financial-chart">
-                        <h2>Finanční graf</h2>
-                        <canvas id="finance-chart"></canvas>
+                </div>
+
+                <div class="widget financial-chart">
+                    <h2>Finanční graf</h2>
+                    <canvas id="finance-chart"></canvas>
+                </div>
+
+                <div class="widget financni-ukazatele">
+                    <h2>Finanční ukazatele</h2>
+                    <div class="ukazatele-grid">
+                        <div class="ukazatel-item">
+                            <span class="label">Celková zadluženost:</span>
+                            <span id="celkova-zadluzenost" class="value">0 %</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Běžná likvidita:</span>
+                            <span id="bezna-likvidita" class="value">0</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Rentabilita tržeb:</span>
+                            <span id="rentabilita-trzeb" class="value">0 %</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Čistý pracovní kapitál:</span>
+                            <span id="cisty-pracovni-kapital" class="value">0 Kč</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Pohotová likvidita:</span>
+                            <span id="pohotova-likvidita" class="value">0</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Okamžitá likvidita:</span>
+                            <span id="okamzita-likvidita" class="value">0</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Míra samofinancování:</span>
+                            <span id="mira-samofinancovani" class="value">0 %</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Produktivita práce:</span>
+                            <span id="produktivita-prace" class="value">0 Kč</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Nákladovost tržeb:</span>
+                            <span id="nakladovost-trzeb" class="value">0 %</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Break-even point:</span>
+                            <span id="break-even-point" class="value">0 Kč</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Cash flow ratio:</span>
+                            <span id="cash-flow-ratio" class="value">0</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Doba splácení dluhů:</span>
+                            <span id="doba-splaceni-dluhu" class="value">0 let</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Ekonomická přidaná hodnota (EVA):</span>
+                            <span id="ekonomicka-pridana-hodnota" class="value">0 Kč</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Ziskový účinek finanční páky:</span>
+                            <span id="ziskovy-ucinek-financni-paky" class="value">0</span>
+                        </div>
+                        <div class="ukazatel-item">
+                            <span class="label">Altmanovo Z-skóre:</span>
+                            <span id="altmanovo-z-skore" class="value">0</span>
+                        </div>
                     </div>
-                </section>
+                </div>
+            </div>
 
-                <section id="prijate-faktury" class="tab-content">
-                    <h2>Přijaté faktury</h2>
-                    <table class="faktury-table">
-                        <thead>
-                            <tr>
-                                <th>Číslo faktury</th>
-                                <th>Dodavatel</th>
-                                <th>Částka</th>
-                                <th>Datum splatnosti</th>
-                                <th>Stav</th>
-                                <th>Akce</th>
-                            </tr>
-                        </thead>
-                        <tbody id="prijate-faktury-list">
-                            <!-- Seznam přijatých faktur bude dynamicky generován -->
-                        </tbody>
-                    </table>
-                    <button id="add-prijata-faktura-btn" class="btn btn-primary">+ Přidat přijatou fakturu</button>
-                </section>
+            <div id="prijate-faktury" class="section tab-content">
+                <h2>Přijaté faktury</h2>
+                <table class="faktury-table">
+                    <thead>
+                        <tr>
+                            <th>Číslo faktury</th>
+                            <th>Dodavatel</th>
+                            <th>Částka</th>
+                            <th>Datum splatnosti</th>
+                            <th>Stav</th>
+                            <th>Akce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="prijate-faktury-list"></tbody>
+                </table>
+                <button id="add-prijata-faktura-btn" class="btn">+ Přidat přijatou fakturu</button>
+            </div>
 
-                <section id="vydane-faktury" class="tab-content">
-                    <h2>Vydané faktury</h2>
-                    <table class="faktury-table">
-                        <thead>
-                            <tr>
-                                <th>Číslo faktury</th>
-                                <th>Odběratel</th>
-                                <th>Částka</th>
-                                <th>Datum splatnosti</th>
-                                <th>Stav</th>
-                                <th>Akce</th>
-                            </tr>
-                        </thead>
-                        <tbody id="vydane-faktury-list">
-                            <!-- Seznam vydaných faktur bude dynamicky generován -->
-                        </tbody>
-                    </table>
-                    <button id="add-vydana-faktura-btn" class="btn btn-primary">+ Přidat vydanou fakturu</button>
-                </section>
+            <div id="vydane-faktury" class="section tab-content">
+                <h2>Vydané faktury</h2>
+                <table class="faktury-table">
+                    <thead>
+                        <tr>
+                            <th>Číslo faktury</th>
+                            <th>Odběratel</th>
+                            <th>Částka</th>
+                            <th>Datum splatnosti</th>
+                            <th>Stav</th>
+                            <th>Akce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="vydane-faktury-list"></tbody>
+                </table>
+                <button id="add-vydana-faktura-btn" class="btn">+ Přidat vydanou fakturu</button>
+            </div>
+
+            <div id="uvery" class="section tab-content">
+                <h2>Úvěry a půjčky</h2>
+                <table class="uvery-table">
+                    <thead>
+                        <tr>
+                            <th>Věřitel</th>
+                            <th>Původní částka</th>
+                            <th>Zbývá splatit</th>
+                            <th>Úrok</th>
+                            <th>Měsíční splátka</th>
+                            <th>Datum splatnosti</th>
+                            <th>Akce</th>
+                        </tr>
+                    </thead>
+                    <tbody id="uvery-list"></tbody>
+                </table>
+                <button id="add-uver-btn" class="btn">+ Přidat úvěr/půjčku</button>
             </div>
         </main>
     </div>

@@ -57,7 +57,16 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: var(--spacing-large);
+    padding: 1rem;
+    background-color: var(--primary-color);
+    border-radius: var(--border-radius);
+    margin-bottom: var(--spacing-normal);
+}
+
+.main-header h1 {
+    color: var(--text-color);
+    margin: 0;
+    font-size: 1.5rem;
 }
 
 .user-info {
@@ -66,7 +75,22 @@
 }
 
 #user-name {
+    color: var(--text-color);
     margin-right: var(--spacing-normal);
+}
+
+.btn-logout {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.btn-logout:hover {
+    background-color: var(--accent-color);
 }
 
 /* Finance specific styles */
@@ -106,12 +130,12 @@
     border-radius: var(--border-radius);
     padding: var(--spacing-normal);
     margin-bottom: var(--spacing-normal);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .widget h2 {
     color: var(--secondary-color);
     margin-bottom: var(--spacing-normal);
+    font-size: 1.2rem;
 }
 
 .summary-grid {
@@ -130,6 +154,7 @@
     display: block;
     font-size: var(--font-size-small);
     margin-bottom: var(--spacing-small);
+    color: var(--text-color);
 }
 
 .summary-item .value {
@@ -139,46 +164,105 @@
     color: var(--secondary-color);
 }
 
+.filter-container {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+#year-select,
 #month-select {
-    width: 100%;
-    padding: var(--spacing-small);
-    margin-bottom: var(--spacing-normal);
-    border: 1px solid var(--accent-color);
+    padding: 0.5rem;
     border-radius: var(--border-radius);
+    border: 1px solid var(--accent-color);
     background-color: var(--background-color);
     color: var(--text-color);
+    font-size: 0.9rem;
 }
 
 .financial-chart {
-    height: 300px;
+    height: 450px;
+    margin-bottom: 20px;
 }
 
-.faktury-table {
+#finance-chart {
+    width: 100%;
+    height: 100%;
+}
+
+.faktury-table,
+.uvery-table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: var(--spacing-normal);
 }
 
 .faktury-table th,
-.faktury-table td {
+.faktury-table td,
+.uvery-table th,
+.uvery-table td {
     padding: var(--spacing-small);
     text-align: left;
     border-bottom: 1px solid var(--accent-color);
 }
 
-.faktury-table th {
+.faktury-table th,
+.uvery-table th {
     background-color: var(--accent-color);
     color: var(--text-color);
     font-weight: bold;
 }
 
-.faktury-table tr:hover {
+.faktury-table tr:hover,
+.uvery-table tr:hover {
     background-color: rgba(var(--secondary-color-rgb), 0.1);
 }
 
 #add-prijata-faktura-btn,
-#add-vydana-faktura-btn {
+#add-vydana-faktura-btn,
+#add-uver-btn {
     margin-top: var(--spacing-normal);
+}
+
+.btn {
+    background-color: var(--secondary-color);
+    color: var(--text-color);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--accent-color);
+}
+
+/* Finanční ukazatele */
+.ukazatele-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-normal);
+}
+
+.ukazatel-item {
+    background-color: var(--background-color);
+    padding: var(--spacing-small);
+    border-radius: var(--border-radius);
+}
+
+.ukazatel-item .label {
+    display: block;
+    font-size: var(--font-size-small);
+    margin-bottom: var(--spacing-small);
+    color: var(--text-color);
+}
+
+.ukazatel-item .value {
+    display: block;
+    font-size: var(--font-size-large);
+    font-weight: bold;
+    color: var(--secondary-color);
 }
 
 /* Responsive design */
@@ -200,7 +284,16 @@
         margin-bottom: var(--spacing-small);
     }
 
-    .summary-grid {
+    .summary-grid,
+    .ukazatele-grid {
         grid-template-columns: 1fr;
+    }
+
+    .filter-container {
+        flex-direction: column;
+    }
+
+    .financial-chart {
+        height: 300px;
     }
 }
