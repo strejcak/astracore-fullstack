@@ -1,0 +1,3 @@
+[submodule "astracore-backend"]
+    path = astracore-backend
+    url = https://github.com/strejcak/astracore-fullstack.git
